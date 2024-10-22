@@ -102,7 +102,7 @@ def main():
     init_db()
 
     # Set page config
-    st.set_page_config(page_title="UNHM Computing Internship Chatbot", layout="wide")
+    st.set_page_config(page_title="Chatbot", layout="wide")
 
     # Custom CSS
     st.markdown("""
@@ -186,12 +186,12 @@ def main():
         <h1 class="main-title">UNHM Computing Internship Chatbot</h1>
         <div style="width:100px;"></div>
     </div>
-    """.format(get_base64_of_bin_file("CenterStackedWhiteWeb_RGB.png")), unsafe_allow_html=True)
+    """.format(get_base64_of_bin_file("your_image.png")), unsafe_allow_html=True)
 
     # Initialize knowledge base
     if "conversation" not in st.session_state:
         with st.spinner("Initializing knowledge base..."):
-            pdf_docs = ["2024-fall-comp690-M2-M3-jin.pdf", "2024-fall-comp893-jin.pdf", "chatbot-doc.pdf"]
+            pdf_docs = ["pdf1.pdf", "pdf2.pdf", "pdf3.pdf"]
             raw_text = get_pdf_text(pdf_docs)
             text_chunks = get_text_chunks(raw_text)
             vectorstore = get_vectorstore(text_chunks)
